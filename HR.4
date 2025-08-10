@@ -1,0 +1,25 @@
+package HRlink1;
+import java.util.*;
+public class four{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.next();
+        String b = sc.next();
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0, count = 0;
+        while (i >= 0 || j >= 0) {
+            int sum = carry;
+            if (i >= 0) sum += a.charAt(i--) - '0';
+            if (j >= 0) sum += b.charAt(j--) - '0';
+            if (sum > 9) {
+                carry = 1;
+                count++;
+            } else {
+                carry = 0;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
