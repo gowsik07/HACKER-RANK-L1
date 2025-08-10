@@ -1,0 +1,26 @@
+package HRlink1;
+import java.util.*;
+public class five{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int nails = sc.nextInt();
+        String middle = sc.next();
+        int bestFirst = -1, bestLast = -1, maxPricePerNail = -1;
+        for (int first = 9; first >= 0; first--) {
+            if (middle.contains(first + "")) continue;
+            for (int last = 9; last >= 0; last--) {
+                if (middle.contains(last + "") || last == first) continue;
+                String fullPriceStr = first + middle + last;
+                int fullPrice = Integer.parseInt(fullPriceStr);
+                int pricePerNail = fullPrice / nails;
+                if (pricePerNail > maxPricePerNail) {
+                    maxPricePerNail = pricePerNail;
+                    bestFirst = first;
+                    bestLast = last;
+                }
+            }
+        }
+        System.out.println(bestFirst + " " + bestLast + " " + maxPricePerNail);
+    }
+}
+
