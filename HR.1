@@ -1,0 +1,26 @@
+package HRlink1;
+import java.util.*;
+public class one{
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int n = sc.nextInt();
+        int alaricScore = n / gcd(x, n);
+        int seraphinaScore = n / gcd(y, n);
+        if (alaricScore >= seraphinaScore) {
+            System.out.println("Alaric unravels the most Mystical Scrolls in the Grand Library!");
+        } else {
+            System.out.println("Seraphina unravels the most Mystical Scrolls in the Grand Library!");
+        }
+    }
+}
+
