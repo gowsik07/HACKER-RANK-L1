@@ -1,0 +1,29 @@
+package HRlink1;
+import java.util.*;
+public class three{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long digits = sc.nextLong();
+        long count = 0, pages = 0, len = 1, start = 1;
+        while (true) {
+            long end = start * 10 - 1;
+            long range = end - start + 1;
+            long needed = range * len;
+            if (digits > needed) {
+                digits -= needed;
+                pages += range;
+                len++;
+                start *= 10;
+            } else {
+                if (digits % len != 0) {
+                    System.out.println("Impossible!");
+                    return;
+                }
+                pages += digits / len;
+                System.out.println(pages);
+                return;
+            }
+        }
+    }
+}
+
